@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Terrain Form</h2>
+    <form [formGroup]="terrainForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nameTer">Name:</label>
+        <input type="text" formControlName="nameTer" class="form-control" />
+        <div *ngIf="terrainForm.get('nameTer').hasError('required')">Name is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="adresse">Adresse:</label>
+        <input type="text" formControlName="adresse" class="form-control" />
+        <div *ngIf="terrainForm.get('adresse').hasError('required')">Adresse is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="surface">Surface:</label>
+        <input type="number" formControlName="surface" class="form-control" />
+        <div *ngIf="terrainForm.get('surface').hasError('required')">Surface is required.</div>
+        <div *ngIf="terrainForm.get('surface').hasError('min')">Surface must be greater than or equal to 0.</div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dateAcquisition">Date Acquisition:</label>
+        <input type="date" formControlName="dateAcquisition" class="form-control" />
+        <div *ngIf="terrainForm.get('dateAcquisition').hasError('required')">Date Acquisition is required.</div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  
